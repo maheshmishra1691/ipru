@@ -53,13 +53,22 @@ goto extractgh
 :extractgh
 if exist "%GHDIR%\bin\gh.exe" (
   echo GitHub CLI is already extracted.
-  goto joindesktop
+  goto addpath
 )
 echo Extracting GitHub CLI...
 if not exist "%GHDIR%" mkdir "%GHDIR%"
 tar -xf "%~dp0gh_2.103.0_windows_amd64.zip" -C "%GHDIR%"
 if not exist "%GHDIR%\bin\gh.exe" (
   echo Could not extract gh.exe. Unzip gh_2.103.0_windows_amd64.zip into %GHDIR% and run this script again.
+  pause
+  exit /b 1
+)
+
+:addpath
+echo Adding GitHub CLI to PATH for Git Bash and new terminals...
+powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0add-gh-to-path.ps1"
+if errorlevel 1 (
+  echo Could not add gh to PATH.
   pause
   exit /b 1
 )

@@ -38,15 +38,29 @@ Copy the whole `ipru` folder from this Mac onto a USB drive, then run `windows\s
 
 GitHub Desktop’s single installer is 226 MB. GitHub rejects files over 100 MB, so it is stored as three parts.
 
+## If Git Bash says `gh: command not found`
+
+Git is on the system PATH. `gh` is not, until this is run once inside Git Bash. Close Git Bash afterwards and open it again.
+
+```bash
+GHZIP=$(find "$HOME/Downloads" "$HOME/Desktop" "$HOME" -name "gh_2.103.0_windows_amd64.zip" 2>/dev/null | head -n 1)
+echo "Using $GHZIP"
+mkdir -p "$HOME/GitHubTools/gh"
+tar -xf "$GHZIP" -C "$HOME/GitHubTools/gh"
+export PATH="$PATH:$HOME/GitHubTools/gh/bin"
+grep -q 'GitHubTools/gh/bin' "$HOME/.bashrc" 2>/dev/null || echo 'export PATH="$PATH:$HOME/GitHubTools/gh/bin"' >> "$HOME/.bashrc"
+gh --version
+```
+
+`gh version 2.103.0` means it worked.
+
 ## After setup
 
-Open **Git and GitHub Prompt** from the Desktop, or run:
-
-`%USERPROFILE%\GitHubTools\Git and GitHub Prompt.bat`
+Open a new Git Bash window, or open **Git and GitHub Prompt** on the Desktop.
 
 Check the tools:
 
-```bat
+```bash
 git --version
 gh --version
 ```
