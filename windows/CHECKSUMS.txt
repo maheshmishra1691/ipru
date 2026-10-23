@@ -1,0 +1,9 @@
+SHA-256 of the official files in this folder. Verified before upload.
+
+dc6d3db061999136e139f31376c5582a9ed6f36a4ea12f15e54ad7fa2bfc0bf2  Git-2.56.0.3-64-bit.exe
+4fc27b779829a36df77911e3f4dea09c66c790dd6c5f7dfa3b6a5479f1fe354f  PortableGit-2.56.0.3-64-bit.7z.exe
+80c846a5b8432672ca6373b34ce9de998c9686aaa1885c845f2e1ee81f713726  gh_2.103.0_windows_amd64.zip
+2e38db8d986884474a1e45afddf554a7187f42124bd38a3d7ea165be7f77f90d  GitHubDesktopSetup-x64.exe
+
+GitHubDesktopSetup-x64.exe is split into desktop\GitHubDesktopSetup-x64.exe.001, .002, and .003.
+Join them with setup-office-laptop.bat. The joined file must match the hash above.
